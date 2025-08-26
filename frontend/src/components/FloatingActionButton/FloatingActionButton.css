@@ -1,0 +1,237 @@
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-normal);
+  z-index: 1000;
+  overflow: hidden;
+  background: var(--primary-color);
+  color: white;
+}
+
+.fab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.fab:hover::before {
+  opacity: 1;
+}
+
+.fab:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--shadow-heavy);
+}
+
+.fab:active,
+.fab.pressed {
+  transform: translateY(-2px) scale(0.95);
+  transition: var(--transition-fast);
+}
+
+.fab img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  z-index: 1;
+  position: relative;
+}
+
+.fab-label {
+  position: absolute;
+  right: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: var(--transition-normal);
+  pointer-events: none;
+}
+
+.fab:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Size variants */
+.fab.small {
+  width: 50px;
+  height: 50px;
+}
+
+.fab.small img {
+  width: 20px;
+  height: 20px;
+}
+
+.fab.large {
+  width: 70px;
+  height: 70px;
+}
+
+.fab.large img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Color variants */
+.fab.primary {
+  background: var(--primary-color);
+}
+
+.fab.secondary {
+  background: var(--secondary-color);
+}
+
+.fab.success {
+  background: var(--success-color);
+}
+
+.fab.warning {
+  background: var(--warning-color);
+}
+
+.fab.error {
+  background: var(--error-color);
+}
+
+.fab.accent {
+  background: var(--accent-color);
+}
+
+/* Multiple FABs */
+.fab + .fab {
+  bottom: 110px;
+}
+
+.fab + .fab + .fab {
+  bottom: 190px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fab {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+  
+  .fab.small {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .fab.large {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .fab img {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .fab.small img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .fab.large img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .fab-label {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .fab {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fab.small {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .fab.large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .fab img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .fab.small img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .fab.large img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Animation variants */
+.fab.bounce {
+  animation: float 3s ease-in-out infinite;
+}
+
+.fab.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.fab.rotate {
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fab {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .fab:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+
